@@ -36,8 +36,8 @@ export function Navbar() {
     <nav
       className={`fixed top-0 left-0 right-0 z-50 transition-all duration-500 ${
         isScrolled
-          ? "bg-background/60 backdrop-blur-xl border-b border-border/50 shadow-lg shadow-background/5"
-          : "bg-background/20 backdrop-blur-md"
+          ? "bg-background/40 backdrop-blur-2xl border-b border-foreground/5 shadow-[0_8px_32px_rgba(0,0,0,0.08)]"
+          : "bg-transparent"
       }`}
     >
       <div className="container mx-auto px-6">
@@ -54,7 +54,7 @@ export function Navbar() {
           </a>
 
           {/* Desktop Navigation */}
-          <div className="hidden md:flex items-center gap-8">
+          <div className="hidden md:flex items-center gap-1">
             {navLinks.map((link) => (
               <a
                 key={link.name}
@@ -63,7 +63,7 @@ export function Navbar() {
                   e.preventDefault();
                   handleNavClick(link.href);
                 }}
-                className="text-sm text-muted-foreground hover:text-foreground transition-colors duration-200"
+                className="px-4 py-2 text-sm text-muted-foreground hover:text-foreground rounded-xl hover:bg-foreground/5 transition-all duration-200"
               >
                 {link.name}
               </a>
@@ -72,7 +72,7 @@ export function Navbar() {
               variant="ghost"
               size="icon"
               onClick={toggleTheme}
-              className="ml-2"
+              className="ml-2 rounded-xl hover:bg-foreground/5"
             >
               {theme === "dark" ? (
                 <Sun className="h-5 w-5" />
@@ -84,7 +84,7 @@ export function Navbar() {
 
           {/* Mobile Menu Button */}
           <div className="md:hidden flex items-center gap-2">
-            <Button variant="ghost" size="icon" onClick={toggleTheme}>
+            <Button variant="ghost" size="icon" onClick={toggleTheme} className="rounded-xl hover:bg-foreground/5">
               {theme === "dark" ? (
                 <Sun className="h-5 w-5" />
               ) : (
@@ -95,6 +95,7 @@ export function Navbar() {
               variant="ghost"
               size="icon"
               onClick={() => setIsOpen(!isOpen)}
+              className="rounded-xl hover:bg-foreground/5"
             >
               {isOpen ? <X className="h-5 w-5" /> : <Menu className="h-5 w-5" />}
             </Button>
@@ -103,8 +104,8 @@ export function Navbar() {
 
         {/* Mobile Navigation */}
         {isOpen && (
-          <div className="md:hidden py-4 border-t border-border/50 bg-background/40 backdrop-blur-xl rounded-b-2xl">
-            <div className="flex flex-col gap-4">
+          <div className="md:hidden py-4 border-t border-foreground/5 bg-background/60 backdrop-blur-2xl rounded-b-2xl -mx-6 px-6">
+            <div className="flex flex-col gap-1">
               {navLinks.map((link) => (
                 <a
                   key={link.name}
@@ -113,7 +114,7 @@ export function Navbar() {
                     e.preventDefault();
                     handleNavClick(link.href);
                   }}
-                  className="text-sm text-muted-foreground hover:text-foreground transition-colors duration-200 py-2"
+                  className="text-sm text-muted-foreground hover:text-foreground px-4 py-3 rounded-xl hover:bg-foreground/5 transition-all duration-200"
                 >
                   {link.name}
                 </a>
