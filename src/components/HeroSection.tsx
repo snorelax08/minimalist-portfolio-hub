@@ -17,7 +17,7 @@ export function HeroSection() {
           </p>
           <h1 className="text-4xl md:text-6xl lg:text-7xl font-bold text-foreground mb-6 leading-tight">
             Atharwa Vatsyayan
-            <span className="block text-muted-foreground">AI/ML • Web Dev • Crypto</span>
+            {/* <span className="block text-muted-foreground">AI/ML • Web Dev • Crypto</span> */}
           </h1>
           <p className="text-lg text-muted-foreground max-w-xl mx-auto mb-10">
             I craft beautiful digital experiences with clean code and thoughtful
