@@ -86,17 +86,18 @@ vec3 getLineColor(float t, vec3 baseColor) {
   return gradientColor * 0.5;
 }
 
-  float wave(vec2 uv, float offset, vec2 screenUv, vec2 mouseUv, bool shouldBend) {
+float wave(vec2 uv, float offset, vec2 screenUv, vec2 mouseUv, bool shouldBend) {
   float time = iTime * animationSpeed;
   float x_offset   = offset;
   float x_movement = time * 0.1;
   float amp        = sin(offset + time * 0.2) * 0.3;
   float y          = sin(uv.x + x_offset + x_movement) * amp;
 
-  if (shouldBend) {
+  if (shouldBend && bendInfluence > 0.01) {
     vec2 d = screenUv - mouseUv;
-    float influence = exp(-dot(d, d) * bendRadius); // radial falloff around cursor
-    float bendOffset = (mouseUv.y - screenUv.y) * influence * bendStrength * bendInfluence;
+    float dist = length(d);
+    float influence = exp(-dist * dist * bendRadius);
+    float bendOffset = influence * bendStrength * bendInfluence;
     y += bendOffset;
   }
 
@@ -375,30 +376,31 @@ export default function FloatingLines({
       ro.observe(containerRef.current);
     }
 
-    const handlePointerMove = (event: PointerEvent) => {
+    const handleMouseMove = (event: MouseEvent) => {
       const rect = renderer.domElement.getBoundingClientRect();
       const x = event.clientX - rect.left;
       const y = event.clientY - rect.top;
-      const dpr = renderer.getPixelRatio();
-      targetMouseRef.current.set(x * dpr, (rect.height - y) * dpr);
-      targetInfluenceRef.current = 1.0;
+      
+      // Check if mouse is within canvas bounds
+      if (x >= 0 && x <= rect.width && y >= 0 && y <= rect.height) {
+        const dpr = renderer.getPixelRatio();
+        targetMouseRef.current.set(x * dpr, (rect.height - y) * dpr);
+        targetInfluenceRef.current = 1.0;
+      } else {
+        targetInfluenceRef.current = 0.0;
+      }
 
       if (parallax) {
-        const centerX = rect.width / 2;
-        const centerY = rect.height / 2;
-        const offsetX = (x - centerX) / rect.width;
-        const offsetY = -(y - centerY) / rect.height;
+        const centerX = window.innerWidth / 2;
+        const centerY = window.innerHeight / 2;
+        const offsetX = (event.clientX - centerX) / window.innerWidth;
+        const offsetY = -(event.clientY - centerY) / window.innerHeight;
         targetParallaxRef.current.set(offsetX * parallaxStrength, offsetY * parallaxStrength);
       }
     };
 
-    const handlePointerLeave = () => {
-      targetInfluenceRef.current = 0.0;
-    };
-
     if (interactive) {
-      renderer.domElement.addEventListener('pointermove', handlePointerMove);
-      renderer.domElement.addEventListener('pointerleave', handlePointerLeave);
+      window.addEventListener('mousemove', handleMouseMove);
     }
 
     let raf = 0;
@@ -423,14 +425,15 @@ export default function FloatingLines({
 
     renderLoop();
 
+    const currentContainer = containerRef.current;
+    
     return () => {
       cancelAnimationFrame(raf);
-      if (ro && containerRef.current) {
+      if (ro && currentContainer) {
         ro.disconnect();
       }
       if (interactive) {
-        renderer.domElement.removeEventListener('pointermove', handlePointerMove);
-        renderer.domElement.removeEventListener('pointerleave', handlePointerLeave);
+        window.removeEventListener('mousemove', handleMouseMove);
       }
       geometry.dispose();
       material.dispose();
