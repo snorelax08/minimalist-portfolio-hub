@@ -15,8 +15,9 @@ const Index = () => {
           enabledWaves={['top', 'middle', 'bottom']}
           lineCount={[10, 15, 20]}
           lineDistance={[8, 6, 4]}
-          bendRadius={5.0}
-          bendStrength={-0.5}
+          bendRadius={2.0}
+          bendStrength={-1.5}
+          mouseDamping={0.1}
           interactive={true}
           parallax={true}
         />
