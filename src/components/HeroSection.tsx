@@ -16,8 +16,8 @@ export function HeroSection() {
             Welcome to my portfolio
           </p>
           <h1 className="text-4xl md:text-6xl lg:text-7xl font-bold text-foreground mb-6 leading-tight">
-            Creative Developer
-            <span className="block text-muted-foreground">& Designer</span>
+            Atharwa Vatsyayan
+            <span className="block text-muted-foreground">AI/ML • Web Dev • Crypto</span>
           </h1>
           <p className="text-lg text-muted-foreground max-w-xl mx-auto mb-10">
             I craft beautiful digital experiences with clean code and thoughtful
@@ -29,7 +29,7 @@ export function HeroSection() {
             if (element) element.scrollIntoView({
               behavior: "smooth"
             });
-          }} className="text-lg text-center">Blending machine learning, elegant frontend design, and secure backend engineering to build intelligent digital experiences that turn research and code into real-world products.</Button>
+          }} className="text-lg text-center">View My Work</Button>
             <Button variant="outline" size="lg" onClick={() => {
             const element = document.querySelector("#contact");
             if (element) element.scrollIntoView({
