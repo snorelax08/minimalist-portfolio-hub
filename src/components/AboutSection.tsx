@@ -20,7 +20,7 @@ const highlights = [
 
 export function AboutSection() {
   return (
-    <section id="about" className="py-24 bg-secondary/30">
+    <section id="about" className="py-24 bg-background/40 backdrop-blur-sm">
       <div className="container mx-auto px-6">
         <div className="max-w-4xl mx-auto">
           <h2 className="text-3xl md:text-4xl font-bold text-foreground mb-4 text-center">
@@ -49,7 +49,7 @@ export function AboutSection() {
                 coffee while sketching new design ideas.
               </p>
             </div>
-            <div className="bg-card rounded-lg p-8 border border-border">
+            <div className="bg-card/50 backdrop-blur-xl rounded-2xl p-8 border border-border/50 shadow-xl shadow-background/10">
               <div className="grid grid-cols-2 gap-6">
                 <div className="text-center">
                   <p className="text-3xl font-bold text-foreground">5+</p>
@@ -75,9 +75,9 @@ export function AboutSection() {
             {highlights.map((item) => (
               <div
                 key={item.title}
-                className="text-center p-6 rounded-lg bg-card border border-border hover:border-ring transition-colors"
+                className="text-center p-6 rounded-2xl bg-card/40 backdrop-blur-xl border border-border/50 hover:border-border hover:bg-card/60 transition-all duration-300 shadow-lg shadow-background/5"
               >
-                <div className="inline-flex items-center justify-center w-12 h-12 rounded-full bg-secondary mb-4">
+                <div className="inline-flex items-center justify-center w-12 h-12 rounded-full bg-secondary/60 backdrop-blur-sm mb-4">
                   <item.icon className="h-6 w-6 text-foreground" />
                 </div>
                 <h4 className="text-lg font-semibold text-foreground mb-2">
