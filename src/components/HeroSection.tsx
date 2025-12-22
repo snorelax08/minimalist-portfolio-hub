@@ -30,6 +30,7 @@ export function HeroSection() {
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <Button
               size="lg"
+              className="bg-foreground/90 backdrop-blur-sm hover:bg-foreground/80 shadow-lg shadow-foreground/20"
               onClick={() => {
                 const element = document.querySelector("#projects");
                 if (element) element.scrollIntoView({ behavior: "smooth" });
@@ -40,6 +41,7 @@ export function HeroSection() {
             <Button
               variant="outline"
               size="lg"
+              className="bg-background/30 backdrop-blur-md border-border/50 hover:bg-background/50"
               onClick={() => {
                 const element = document.querySelector("#contact");
                 if (element) element.scrollIntoView({ behavior: "smooth" });

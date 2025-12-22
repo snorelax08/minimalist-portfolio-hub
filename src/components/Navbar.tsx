@@ -34,10 +34,10 @@ export function Navbar() {
 
   return (
     <nav
-      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
+      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-500 ${
         isScrolled
-          ? "bg-background/80 backdrop-blur-md border-b border-border"
-          : "bg-transparent"
+          ? "bg-background/60 backdrop-blur-xl border-b border-border/50 shadow-lg shadow-background/5"
+          : "bg-background/20 backdrop-blur-md"
       }`}
     >
       <div className="container mx-auto px-6">
@@ -103,7 +103,7 @@ export function Navbar() {
 
         {/* Mobile Navigation */}
         {isOpen && (
-          <div className="md:hidden py-4 border-t border-border">
+          <div className="md:hidden py-4 border-t border-border/50 bg-background/40 backdrop-blur-xl rounded-b-2xl">
             <div className="flex flex-col gap-4">
               {navLinks.map((link) => (
                 <a

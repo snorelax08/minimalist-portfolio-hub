@@ -52,7 +52,7 @@ export function SkillsSection() {
                         {skill.level}%
                       </span>
                     </div>
-                    <div className="h-2 bg-secondary rounded-full overflow-hidden">
+                    <div className="h-2 bg-secondary/50 backdrop-blur-sm rounded-full overflow-hidden">
                       <div
                         className="h-full bg-foreground rounded-full transition-all duration-500"
                         style={{ width: `${skill.level}%` }}
@@ -71,7 +71,7 @@ export function SkillsSection() {
                 {technologies.map((tech) => (
                   <span
                     key={tech}
-                    className="px-4 py-2 text-sm bg-secondary text-secondary-foreground rounded-full border border-border hover:border-ring transition-colors"
+                    className="px-4 py-2 text-sm bg-secondary/40 backdrop-blur-md text-secondary-foreground rounded-full border border-border/50 hover:border-border hover:bg-secondary/60 transition-all duration-300"
                   >
                     {tech}
                   </span>

@@ -73,7 +73,7 @@ export function ContactSection() {
                     href={item.href}
                     className="flex items-center gap-4 text-muted-foreground hover:text-foreground transition-colors"
                   >
-                    <div className="flex items-center justify-center w-10 h-10 rounded-full bg-secondary">
+                    <div className="flex items-center justify-center w-10 h-10 rounded-full bg-secondary/50 backdrop-blur-sm border border-border/30">
                       <item.icon className="h-5 w-5" />
                     </div>
                     <div>
@@ -94,7 +94,7 @@ export function ContactSection() {
                     href={link.href}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="flex items-center justify-center w-10 h-10 rounded-full bg-secondary text-secondary-foreground hover:bg-accent hover:text-accent-foreground transition-colors"
+                    className="flex items-center justify-center w-10 h-10 rounded-full bg-secondary/50 backdrop-blur-sm text-secondary-foreground border border-border/30 hover:bg-accent/50 hover:text-accent-foreground transition-all duration-300"
                     aria-label={link.label}
                   >
                     <link.icon className="h-5 w-5" />
@@ -159,7 +159,7 @@ export function ContactSection() {
                     required
                   />
                 </div>
-                <Button type="submit" size="lg" className="w-full">
+                <Button type="submit" size="lg" className="w-full bg-foreground/90 backdrop-blur-sm hover:bg-foreground/80 shadow-lg shadow-foreground/20">
                   <Send className="h-4 w-4 mr-2" />
                   Send Message
                 </Button>
@@ -170,9 +170,9 @@ export function ContactSection() {
       </div>
 
       {/* Footer */}
-      <div className="mt-24 pt-8 border-t border-border">
+      <div className="mt-24 pt-8 border-t border-border/50 bg-background/20 backdrop-blur-sm">
         <div className="container mx-auto px-6">
-          <p className="text-center text-sm text-muted-foreground">
+          <p className="text-center text-sm text-muted-foreground/80">
             © {new Date().getFullYear()} Portfolio. Built with React & Tailwind CSS.
           </p>
         </div>

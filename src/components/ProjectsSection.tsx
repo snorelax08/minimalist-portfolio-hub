@@ -42,7 +42,7 @@ const projects = [
 
 export function ProjectsSection() {
   return (
-    <section id="projects" className="py-24 bg-secondary/30">
+    <section id="projects" className="py-24 bg-background/40 backdrop-blur-sm">
       <div className="container mx-auto px-6">
         <div className="max-w-6xl mx-auto">
           <h2 className="text-3xl md:text-4xl font-bold text-foreground mb-4 text-center">
@@ -57,9 +57,9 @@ export function ProjectsSection() {
             {projects.map((project) => (
               <div
                 key={project.title}
-                className="group bg-card rounded-lg overflow-hidden border border-border hover:border-ring transition-all duration-300"
+                className="group bg-card/40 backdrop-blur-xl rounded-2xl overflow-hidden border border-border/50 hover:border-border hover:bg-card/60 transition-all duration-500 shadow-xl shadow-background/10"
               >
-                <div className="aspect-video overflow-hidden">
+                <div className="aspect-video overflow-hidden rounded-t-2xl">
                   <img
                     src={project.image}
                     alt={project.title}
@@ -77,20 +77,20 @@ export function ProjectsSection() {
                     {project.tags.map((tag) => (
                       <span
                         key={tag}
-                        className="px-3 py-1 text-xs bg-secondary text-secondary-foreground rounded-full"
+                        className="px-3 py-1 text-xs bg-secondary/50 backdrop-blur-sm text-secondary-foreground rounded-full border border-border/30"
                       >
                         {tag}
                       </span>
                     ))}
                   </div>
                   <div className="flex gap-3">
-                    <Button variant="outline" size="sm" asChild>
+                    <Button variant="outline" size="sm" className="bg-background/30 backdrop-blur-sm border-border/50 hover:bg-background/50" asChild>
                       <a href={project.liveUrl} target="_blank" rel="noopener noreferrer">
                         <ExternalLink className="h-4 w-4 mr-2" />
                         Live Demo
                       </a>
                     </Button>
-                    <Button variant="ghost" size="sm" asChild>
+                    <Button variant="ghost" size="sm" className="hover:bg-background/30 backdrop-blur-sm" asChild>
                       <a href={project.githubUrl} target="_blank" rel="noopener noreferrer">
                         <Github className="h-4 w-4 mr-2" />
                         Code
