@@ -5,6 +5,7 @@ import { Textarea } from "./ui/textarea";
 import { useState } from "react";
 import { useToast } from "@/hooks/use-toast";
 import { GlassCard } from "./ui/glass-card";
+import { AnimatedSection } from "./ui/animated-section";
 
 const contactInfo = [
   {
@@ -57,138 +58,151 @@ export function ContactSection() {
       
       <div className="container mx-auto px-6 relative">
         <div className="max-w-5xl mx-auto">
-          <h2 className="text-3xl md:text-4xl font-bold text-foreground mb-4 text-center">
-            Get In Touch
-          </h2>
-          <p className="text-muted-foreground text-center mb-16 max-w-2xl mx-auto">
-            Have a project in mind or just want to say hello? I'd love to hear
-            from you.
-          </p>
+          <AnimatedSection animation="fade-up">
+            <h2 className="text-3xl md:text-4xl font-bold text-foreground mb-4 text-center drop-shadow-md">
+              Get In Touch
+            </h2>
+          </AnimatedSection>
+          
+          <AnimatedSection animation="fade-up" delay={100}>
+            <p className="text-foreground/75 text-center mb-16 max-w-2xl mx-auto drop-shadow-sm">
+              Have a project in mind or just want to say hello? I'd love to hear
+              from you.
+            </p>
+          </AnimatedSection>
 
           <div className="grid md:grid-cols-2 gap-8">
             <div className="space-y-8">
-              <GlassCard variant="subtle" className="p-6">
-                <h3 className="text-lg font-semibold text-foreground mb-6">
-                  Contact Information
-                </h3>
-                <div className="space-y-5">
-                  {contactInfo.map((item) => (
-                    <a
-                      key={item.label}
-                      href={item.href}
-                      className="flex items-center gap-4 text-muted-foreground hover:text-foreground transition-colors group"
-                    >
-                      <div className="flex items-center justify-center w-11 h-11 rounded-xl bg-gradient-to-br from-foreground/[0.1] via-foreground/[0.05] to-transparent backdrop-blur-xl border border-foreground/[0.08] shadow-[0_4px_12px_rgba(0,0,0,0.08),inset_0_1px_1px_rgba(255,255,255,0.1)] group-hover:from-foreground/[0.15] group-hover:border-foreground/15 group-hover:shadow-[0_6px_16px_rgba(0,0,0,0.12),inset_0_1px_1px_rgba(255,255,255,0.15)] group-hover:-translate-y-0.5 transition-all duration-300">
-                        <item.icon className="h-5 w-5" />
-                      </div>
-                      <div>
-                        <p className="text-xs text-muted-foreground/70">{item.label}</p>
-                        <p className="text-foreground">{item.value}</p>
-                      </div>
-                    </a>
-                  ))}
-                </div>
-              </GlassCard>
+              <AnimatedSection animation="fade-right" delay={200}>
+                <GlassCard variant="subtle" className="p-6">
+                  <h3 className="text-lg font-semibold text-foreground mb-6 drop-shadow-sm">
+                    Contact Information
+                  </h3>
+                  <div className="space-y-5">
+                    {contactInfo.map((item) => (
+                      <a
+                        key={item.label}
+                        href={item.href}
+                        className="flex items-center gap-4 text-foreground/70 hover:text-foreground transition-colors group"
+                      >
+                        <div className="flex items-center justify-center w-11 h-11 rounded-xl bg-gradient-to-br from-foreground/[0.12] via-foreground/[0.06] to-transparent backdrop-blur-xl border border-foreground/[0.1] shadow-[0_4px_12px_rgba(0,0,0,0.1),inset_0_1px_1px_rgba(255,255,255,0.12)] group-hover:from-foreground/[0.18] group-hover:border-foreground/18 group-hover:shadow-[0_6px_16px_rgba(0,0,0,0.14),inset_0_1px_1px_rgba(255,255,255,0.18)] group-hover:-translate-y-0.5 transition-all duration-300">
+                          <item.icon className="h-5 w-5" />
+                        </div>
+                        <div>
+                          <p className="text-xs text-foreground/60">{item.label}</p>
+                          <p className="text-foreground drop-shadow-sm">{item.value}</p>
+                        </div>
+                      </a>
+                    ))}
+                  </div>
+                </GlassCard>
+              </AnimatedSection>
 
-              <GlassCard variant="subtle" className="p-6">
-                <h3 className="text-lg font-semibold text-foreground mb-4">
-                  Follow Me
-                </h3>
-                <div className="flex gap-3">
-                  {socialLinks.map((link) => (
-                    <a
-                      key={link.label}
-                      href={link.href}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="flex items-center justify-center w-11 h-11 rounded-xl bg-gradient-to-br from-foreground/[0.1] via-foreground/[0.05] to-transparent backdrop-blur-xl text-foreground/70 border border-foreground/[0.08] shadow-[0_4px_12px_rgba(0,0,0,0.08),inset_0_1px_1px_rgba(255,255,255,0.1)] hover:from-foreground/[0.15] hover:text-foreground hover:border-foreground/15 hover:shadow-[0_6px_16px_rgba(0,0,0,0.12),inset_0_1px_1px_rgba(255,255,255,0.15)] hover:-translate-y-0.5 transition-all duration-300"
-                      aria-label={link.label}
-                    >
-                      <link.icon className="h-5 w-5" />
-                    </a>
-                  ))}
-                </div>
-              </GlassCard>
+              <AnimatedSection animation="fade-right" delay={300}>
+                <GlassCard variant="subtle" className="p-6">
+                  <h3 className="text-lg font-semibold text-foreground mb-4 drop-shadow-sm">
+                    Follow Me
+                  </h3>
+                  <div className="flex gap-3">
+                    {socialLinks.map((link) => (
+                      <a
+                        key={link.label}
+                        href={link.href}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="flex items-center justify-center w-11 h-11 rounded-xl bg-gradient-to-br from-foreground/[0.12] via-foreground/[0.06] to-transparent backdrop-blur-xl text-foreground/75 border border-foreground/[0.1] shadow-[0_4px_12px_rgba(0,0,0,0.1),inset_0_1px_1px_rgba(255,255,255,0.12)] hover:from-foreground/[0.18] hover:text-foreground hover:border-foreground/18 hover:shadow-[0_6px_16px_rgba(0,0,0,0.14),inset_0_1px_1px_rgba(255,255,255,0.18)] hover:-translate-y-0.5 transition-all duration-300"
+                        aria-label={link.label}
+                      >
+                        <link.icon className="h-5 w-5" />
+                      </a>
+                    ))}
+                  </div>
+                </GlassCard>
+              </AnimatedSection>
             </div>
 
-            <GlassCard variant="default" className="p-6">
-              <form onSubmit={handleSubmit} className="space-y-5">
-                <div>
-                  <label
-                    htmlFor="name"
-                    className="block text-sm font-medium text-foreground mb-2"
+            <AnimatedSection animation="fade-left" delay={200}>
+              <GlassCard variant="default" className="p-6 h-full">
+                <form onSubmit={handleSubmit} className="space-y-5">
+                  <div>
+                    <label
+                      htmlFor="name"
+                      className="block text-sm font-medium text-foreground mb-2 drop-shadow-sm"
+                    >
+                      Name
+                    </label>
+                    <Input
+                      id="name"
+                      type="text"
+                      placeholder="Your name"
+                      value={formData.name}
+                      onChange={(e) =>
+                        setFormData({ ...formData, name: e.target.value })
+                      }
+                      required
+                    />
+                  </div>
+                  <div>
+                    <label
+                      htmlFor="email"
+                      className="block text-sm font-medium text-foreground mb-2 drop-shadow-sm"
+                    >
+                      Email
+                    </label>
+                    <Input
+                      id="email"
+                      type="email"
+                      placeholder="your@email.com"
+                      value={formData.email}
+                      onChange={(e) =>
+                        setFormData({ ...formData, email: e.target.value })
+                      }
+                      required
+                    />
+                  </div>
+                  <div>
+                    <label
+                      htmlFor="message"
+                      className="block text-sm font-medium text-foreground mb-2 drop-shadow-sm"
+                    >
+                      Message
+                    </label>
+                    <Textarea
+                      id="message"
+                      placeholder="Your message..."
+                      rows={5}
+                      value={formData.message}
+                      onChange={(e) =>
+                        setFormData({ ...formData, message: e.target.value })
+                      }
+                      required
+                    />
+                  </div>
+                  <Button 
+                    type="submit" 
+                    size="lg" 
+                    className="w-full bg-foreground text-background hover:bg-foreground/90 shadow-[0_8px_32px_rgba(0,0,0,0.3)] hover:shadow-[0_12px_40px_rgba(0,0,0,0.4)] hover:-translate-y-0.5 transition-all duration-300"
                   >
-                    Name
-                  </label>
-                  <Input
-                    id="name"
-                    type="text"
-                    placeholder="Your name"
-                    value={formData.name}
-                    onChange={(e) =>
-                      setFormData({ ...formData, name: e.target.value })
-                    }
-                    required
-                  />
-                </div>
-                <div>
-                  <label
-                    htmlFor="email"
-                    className="block text-sm font-medium text-foreground mb-2"
-                  >
-                    Email
-                  </label>
-                  <Input
-                    id="email"
-                    type="email"
-                    placeholder="your@email.com"
-                    value={formData.email}
-                    onChange={(e) =>
-                      setFormData({ ...formData, email: e.target.value })
-                    }
-                    required
-                  />
-                </div>
-                <div>
-                  <label
-                    htmlFor="message"
-                    className="block text-sm font-medium text-foreground mb-2"
-                  >
-                    Message
-                  </label>
-                  <Textarea
-                    id="message"
-                    placeholder="Your message..."
-                    rows={5}
-                    value={formData.message}
-                    onChange={(e) =>
-                      setFormData({ ...formData, message: e.target.value })
-                    }
-                    required
-                  />
-                </div>
-                <Button 
-                  type="submit" 
-                  size="lg" 
-                  className="w-full bg-foreground text-background hover:bg-foreground/90 shadow-[0_8px_32px_rgba(0,0,0,0.3)] hover:shadow-[0_12px_40px_rgba(0,0,0,0.4)] hover:-translate-y-0.5 transition-all duration-300"
-                >
-                  <Send className="h-4 w-4 mr-2" />
-                  Send Message
-                </Button>
-              </form>
-            </GlassCard>
+                    <Send className="h-4 w-4 mr-2" />
+                    Send Message
+                  </Button>
+                </form>
+              </GlassCard>
+            </AnimatedSection>
           </div>
         </div>
       </div>
 
       {/* Footer */}
-      <div className="mt-24 pt-8 border-t border-foreground/5">
-        <div className="container mx-auto px-6">
-          <p className="text-center text-sm text-muted-foreground/60">
-            © {new Date().getFullYear()} Portfolio. Built with React & Tailwind CSS.
-          </p>
+      <AnimatedSection animation="fade-up" delay={400}>
+        <div className="mt-24 pt-8 border-t border-foreground/8">
+          <div className="container mx-auto px-6">
+            <p className="text-center text-sm text-foreground/50">
+              © {new Date().getFullYear()} Portfolio. Built with React & Tailwind CSS.
+            </p>
+          </div>
         </div>
-      </div>
+      </AnimatedSection>
     </section>
   );
 }
