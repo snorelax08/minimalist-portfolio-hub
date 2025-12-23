@@ -1,5 +1,6 @@
 import { ArrowDown } from "lucide-react";
 import { Button } from "./ui/button";
+import { FloatingGeometry } from "./FloatingGeometry";
 export function HeroSection() {
   const scrollToAbout = () => {
     const element = document.querySelector("#about");
@@ -11,33 +12,40 @@ export function HeroSection() {
   };
   return <section id="home" className="min-h-screen flex items-center justify-center relative">
       <div className="container mx-auto px-6 py-20">
-        <div className="max-w-3xl mx-auto text-center">
-          <p className="text-sm uppercase tracking-widest text-muted-foreground mb-4 animate-fade-in">
-            Welcome to my portfolio
-          </p>
-          <h1 className="text-4xl md:text-6xl lg:text-7xl font-bold text-foreground mb-6 leading-tight">
-            Atharwa Vatsyayan
-            {/* <span className="block text-muted-foreground">AI/ML • Web Dev • Crypto</span> */}
-          </h1>
-          <p className="text-lg text-muted-foreground max-w-xl mx-auto mb-10">
-            I craft beautiful digital experiences with clean code and thoughtful
-            design. Passionate about building products that make a difference.
-          </p>
-          <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <Button size="lg" onClick={() => {
-            const element = document.querySelector("#projects");
-            if (element) element.scrollIntoView({
-              behavior: "smooth"
-            });
-          }} className="text-lg text-center">View My Work</Button>
-            <Button variant="outline" size="lg" onClick={() => {
-            const element = document.querySelector("#contact");
-            if (element) element.scrollIntoView({
-              behavior: "smooth"
-            });
-          }}>
-              Get In Touch
-            </Button>
+        <div className="flex flex-col lg:flex-row items-center gap-8 lg:gap-16">
+          {/* Text Content */}
+          <div className="flex-1 text-center lg:text-left">
+            <p className="text-sm uppercase tracking-widest text-muted-foreground mb-4 animate-fade-in">
+              Welcome to my portfolio
+            </p>
+            <h1 className="text-4xl md:text-6xl lg:text-7xl font-bold text-foreground mb-6 leading-tight">
+              Atharwa Vatsyayan
+            </h1>
+            <p className="text-lg text-muted-foreground max-w-xl mx-auto lg:mx-0 mb-10">
+              I craft beautiful digital experiences with clean code and thoughtful
+              design. Passionate about building products that make a difference.
+            </p>
+            <div className="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start">
+              <Button size="lg" onClick={() => {
+                const element = document.querySelector("#projects");
+                if (element) element.scrollIntoView({
+                  behavior: "smooth"
+                });
+              }} className="text-lg text-center">View My Work</Button>
+              <Button variant="outline" size="lg" onClick={() => {
+                const element = document.querySelector("#contact");
+                if (element) element.scrollIntoView({
+                  behavior: "smooth"
+                });
+              }}>
+                Get In Touch
+              </Button>
+            </div>
+          </div>
+          
+          {/* 3D Element */}
+          <div className="flex-1 w-full h-[300px] md:h-[400px] lg:h-[500px] relative">
+            <FloatingGeometry />
           </div>
         </div>
       </div>
