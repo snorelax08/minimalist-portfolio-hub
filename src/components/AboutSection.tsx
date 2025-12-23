@@ -78,7 +78,7 @@ export function AboutSection() {
           <div className="grid md:grid-cols-3 gap-6">
             {highlights.map((item) => (
               <GlassCard key={item.title} className="p-6 text-center">
-                <div className="inline-flex items-center justify-center w-14 h-14 rounded-2xl bg-foreground/5 backdrop-blur-xl border border-foreground/10 mb-4">
+                <div className="inline-flex items-center justify-center w-14 h-14 rounded-2xl bg-gradient-to-br from-foreground/10 via-foreground/5 to-transparent backdrop-blur-xl border border-foreground/[0.08] mb-4 shadow-[0_4px_16px_rgba(0,0,0,0.1),inset_0_1px_1px_rgba(255,255,255,0.1)]">
                   <item.icon className="h-6 w-6 text-foreground" />
                 </div>
                 <h4 className="text-lg font-semibold text-foreground mb-2">

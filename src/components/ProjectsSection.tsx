@@ -82,7 +82,7 @@ export function ProjectsSection() {
                     {project.tags.map((tag) => (
                       <span
                         key={tag}
-                        className="px-3 py-1 text-xs bg-foreground/5 backdrop-blur-sm text-foreground/70 rounded-lg border border-foreground/10"
+                        className="px-3 py-1.5 text-xs bg-gradient-to-br from-foreground/[0.08] to-foreground/[0.03] backdrop-blur-sm text-foreground/70 rounded-lg border border-foreground/[0.08] shadow-[0_1px_4px_rgba(0,0,0,0.05),inset_0_1px_0_rgba(255,255,255,0.08)]"
                       >
                         {tag}
                       </span>

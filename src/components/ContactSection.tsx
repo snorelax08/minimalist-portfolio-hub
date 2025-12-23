@@ -78,7 +78,7 @@ export function ContactSection() {
                       href={item.href}
                       className="flex items-center gap-4 text-muted-foreground hover:text-foreground transition-colors group"
                     >
-                      <div className="flex items-center justify-center w-11 h-11 rounded-xl bg-foreground/5 backdrop-blur-xl border border-foreground/10 group-hover:bg-foreground/10 group-hover:border-foreground/20 transition-all duration-300">
+                      <div className="flex items-center justify-center w-11 h-11 rounded-xl bg-gradient-to-br from-foreground/[0.1] via-foreground/[0.05] to-transparent backdrop-blur-xl border border-foreground/[0.08] shadow-[0_4px_12px_rgba(0,0,0,0.08),inset_0_1px_1px_rgba(255,255,255,0.1)] group-hover:from-foreground/[0.15] group-hover:border-foreground/15 group-hover:shadow-[0_6px_16px_rgba(0,0,0,0.12),inset_0_1px_1px_rgba(255,255,255,0.15)] group-hover:-translate-y-0.5 transition-all duration-300">
                         <item.icon className="h-5 w-5" />
                       </div>
                       <div>
@@ -101,7 +101,7 @@ export function ContactSection() {
                       href={link.href}
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="flex items-center justify-center w-11 h-11 rounded-xl bg-foreground/5 backdrop-blur-xl text-foreground/70 border border-foreground/10 hover:bg-foreground/10 hover:text-foreground hover:border-foreground/20 transition-all duration-300"
+                      className="flex items-center justify-center w-11 h-11 rounded-xl bg-gradient-to-br from-foreground/[0.1] via-foreground/[0.05] to-transparent backdrop-blur-xl text-foreground/70 border border-foreground/[0.08] shadow-[0_4px_12px_rgba(0,0,0,0.08),inset_0_1px_1px_rgba(255,255,255,0.1)] hover:from-foreground/[0.15] hover:text-foreground hover:border-foreground/15 hover:shadow-[0_6px_16px_rgba(0,0,0,0.12),inset_0_1px_1px_rgba(255,255,255,0.15)] hover:-translate-y-0.5 transition-all duration-300"
                       aria-label={link.label}
                     >
                       <link.icon className="h-5 w-5" />
