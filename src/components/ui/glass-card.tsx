@@ -9,20 +9,52 @@ interface GlassCardProps extends React.HTMLAttributes<HTMLDivElement> {
 const GlassCard = React.forwardRef<HTMLDivElement, GlassCardProps>(
   ({ className, variant = "default", hover = true, ...props }, ref) => {
     const variants = {
-      default: "bg-card/30 backdrop-blur-2xl border-border/40 shadow-[0_8px_32px_rgba(0,0,0,0.12)] before:absolute before:inset-0 before:rounded-[inherit] before:bg-gradient-to-b before:from-foreground/[0.08] before:to-transparent before:pointer-events-none",
-      subtle: "bg-card/20 backdrop-blur-xl border-border/30 shadow-[0_4px_24px_rgba(0,0,0,0.08)] before:absolute before:inset-0 before:rounded-[inherit] before:bg-gradient-to-b before:from-foreground/[0.04] before:to-transparent before:pointer-events-none",
-      strong: "bg-card/50 backdrop-blur-3xl border-border/50 shadow-[0_16px_48px_rgba(0,0,0,0.2)] before:absolute before:inset-0 before:rounded-[inherit] before:bg-gradient-to-b before:from-foreground/[0.12] before:to-transparent before:pointer-events-none",
+      default: [
+        // Base glass layer
+        "bg-gradient-to-br from-card/40 via-card/30 to-card/20",
+        "backdrop-blur-2xl",
+        "border border-foreground/[0.08]",
+        // 3D depth shadows
+        "shadow-[0_8px_32px_rgba(0,0,0,0.12),0_2px_8px_rgba(0,0,0,0.08),inset_0_1px_1px_rgba(255,255,255,0.1)]",
+        // Top highlight (liquid glass reflection)
+        "before:absolute before:inset-0 before:rounded-[inherit] before:bg-gradient-to-b before:from-foreground/[0.12] before:via-foreground/[0.03] before:to-transparent before:pointer-events-none",
+        // Bottom edge glow
+        "after:absolute after:inset-0 after:rounded-[inherit] after:bg-gradient-to-t after:from-foreground/[0.04] after:to-transparent after:pointer-events-none",
+      ].join(" "),
+      subtle: [
+        "bg-gradient-to-br from-card/30 via-card/20 to-card/10",
+        "backdrop-blur-xl",
+        "border border-foreground/[0.06]",
+        "shadow-[0_4px_24px_rgba(0,0,0,0.08),0_1px_4px_rgba(0,0,0,0.05),inset_0_1px_1px_rgba(255,255,255,0.08)]",
+        "before:absolute before:inset-0 before:rounded-[inherit] before:bg-gradient-to-b before:from-foreground/[0.08] before:via-transparent before:to-transparent before:pointer-events-none",
+        "after:absolute after:inset-0 after:rounded-[inherit] after:bg-gradient-to-t after:from-foreground/[0.02] after:to-transparent after:pointer-events-none",
+      ].join(" "),
+      strong: [
+        "bg-gradient-to-br from-card/60 via-card/45 to-card/30",
+        "backdrop-blur-3xl",
+        "border border-foreground/[0.12]",
+        "shadow-[0_20px_60px_rgba(0,0,0,0.2),0_8px_24px_rgba(0,0,0,0.15),0_2px_6px_rgba(0,0,0,0.1),inset_0_2px_2px_rgba(255,255,255,0.15),inset_0_-1px_1px_rgba(0,0,0,0.05)]",
+        "before:absolute before:inset-0 before:rounded-[inherit] before:bg-gradient-to-b before:from-foreground/[0.18] before:via-foreground/[0.05] before:to-transparent before:pointer-events-none",
+        "after:absolute after:inset-0 after:rounded-[inherit] after:bg-gradient-to-t after:from-foreground/[0.06] after:via-transparent after:to-transparent after:pointer-events-none",
+      ].join(" "),
     };
 
     const hoverClass = hover
-      ? "hover:bg-card/40 hover:border-border/60 hover:shadow-[0_16px_48px_rgba(0,0,0,0.16)] hover:before:from-foreground/[0.12] transition-all duration-500"
+      ? [
+          "hover:bg-gradient-to-br hover:from-card/50 hover:via-card/40 hover:to-card/25",
+          "hover:border-foreground/[0.15]",
+          "hover:shadow-[0_16px_48px_rgba(0,0,0,0.18),0_6px_20px_rgba(0,0,0,0.12),0_2px_8px_rgba(0,0,0,0.08),inset_0_2px_2px_rgba(255,255,255,0.15)]",
+          "hover:before:from-foreground/[0.16]",
+          "hover:-translate-y-0.5",
+          "transition-all duration-500 ease-out",
+        ].join(" ")
       : "";
 
     return (
       <div
         ref={ref}
         className={cn(
-          "relative rounded-2xl border overflow-hidden",
+          "relative rounded-3xl overflow-hidden",
           variants[variant],
           hoverClass,
           className

@@ -57,9 +57,9 @@ export function SkillsSection() {
                         {skill.level}%
                       </span>
                     </div>
-                    <div className="h-2 bg-foreground/5 backdrop-blur-sm rounded-full overflow-hidden border border-foreground/5">
+                    <div className="h-2.5 bg-gradient-to-r from-foreground/[0.03] to-foreground/[0.06] backdrop-blur-sm rounded-full overflow-hidden border border-foreground/[0.08] shadow-[inset_0_1px_3px_rgba(0,0,0,0.1)]">
                       <div
-                        className="h-full bg-gradient-to-r from-foreground/60 to-foreground/80 rounded-full transition-all duration-700"
+                        className="h-full bg-gradient-to-r from-foreground/50 via-foreground/70 to-foreground/60 rounded-full transition-all duration-700 shadow-[0_0_8px_rgba(0,0,0,0.15),inset_0_1px_0_rgba(255,255,255,0.2)]"
                         style={{ width: `${skill.level}%` }}
                       />
                     </div>
@@ -76,7 +76,7 @@ export function SkillsSection() {
                 {technologies.map((tech) => (
                   <span
                     key={tech}
-                    className="px-4 py-2 text-sm bg-foreground/5 backdrop-blur-xl text-foreground/80 rounded-xl border border-foreground/10 hover:border-foreground/20 hover:bg-foreground/10 transition-all duration-300 cursor-default"
+                    className="px-4 py-2 text-sm bg-gradient-to-br from-foreground/[0.08] via-foreground/[0.04] to-transparent backdrop-blur-xl text-foreground/80 rounded-xl border border-foreground/[0.08] shadow-[0_2px_8px_rgba(0,0,0,0.06),inset_0_1px_1px_rgba(255,255,255,0.08)] hover:border-foreground/15 hover:from-foreground/[0.12] hover:shadow-[0_4px_12px_rgba(0,0,0,0.1),inset_0_1px_1px_rgba(255,255,255,0.12)] hover:-translate-y-0.5 transition-all duration-300 cursor-default"
                   >
                     {tech}
                   </span>
