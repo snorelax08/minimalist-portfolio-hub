@@ -1,95 +1,125 @@
+import { ExternalLink, Github } from "lucide-react";
+import { Button } from "./ui/button";
+import { GlassCard } from "./ui/glass-card";
 import { AnimatedSection } from "./ui/animated-section";
 
-const skillItems = [
+const projects = [
   {
-    image: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/html5/html5-original.svg",
-    link: "https://developer.mozilla.org/en-US/docs/Web/HTML",
-    title: "HTML",
-    description: "Semantic structure"
+    title: "PaperSense",
+    description:
+      "AI-powered, local-first semantic PDF search engine enabling Google-like search across private document collections using hybrid semantic and keyword ranking.",
+    tags: [
+      "Python",
+      "FastAPI",
+      "SentenceTransformers",
+      "TF-IDF",
+      "React",
+      "Vite",
+      "PyMuPDF"
+    ],
+    image: "https://images.unsplash.com/photo-1517433456452-f9633a875f6f?auto=format&fit=crop&w=800&q=80",
+    liveUrl: "#",
+    githubUrl: "https://github.com/snorelax08/PaperSense"
   },
   {
-    image: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/css3/css3-original.svg",
-    link: "https://developer.mozilla.org/en-US/docs/Web/CSS",
-    title: "CSS",
-    description: "Responsive styling"
+    title: "Quantum Resistance Checker",
+    description:
+      "Cryptographic security analysis tool that evaluates encrypted files for vulnerability to quantum attacks and recommends post-quantum migration strategies.",
+    tags: [
+      "Python",
+      "Cryptography",
+      "Post-Quantum",
+      "Security Analysis"
+    ],
+    image: "https://images.unsplash.com/photo-1550751827-4bd374c3f58b?auto=format&fit=crop&w=800&q=80",
+    liveUrl: "https://snorelax08.github.io/Quantum-Resistance-Checker-web/",
+    githubUrl: "https://github.com/snorelax08/Quantum-Resistance-Checker"
   },
   {
-    image: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/javascript/javascript-original.svg",
-    link: "https://developer.mozilla.org/en-US/docs/Web/JavaScript",
-    title: "JavaScript",
-    description: "Core web logic"
+    title: "Defect Analysis in Machine Components (ISRO)",
+    description:
+      "Computer vision–based defect detection system developed as part of an ISRO research collaboration for predictive maintenance of machine components.",
+    tags: [
+      "Computer Vision",
+      "Deep Learning",
+      "ResNet50",
+      "Python",
+      "Research"
+    ],
+    image: "https://images.unsplash.com/photo-1581090700227-1e37b190418e?auto=format&fit=crop&w=800&q=80",
+    liveUrl: "#",
+    githubUrl: "#"
   },
   {
-    image: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/react/react-original.svg",
-    link: "https://react.dev/",
-    title: "React",
-    description: "Modern UI development"
+    title: "Mood Music Recommender",
+    description:
+      "AI-based music recommendation system that suggests tracks based on user mood, weather conditions, and time of day, supporting both text and voice input.",
+    tags: [
+      "Python",
+      "NLP",
+      "Speech Recognition",
+      "AI"
+    ],
+    image: "https://images.unsplash.com/photo-1511671782779-c97d3d27a1d4?auto=format&fit=crop&w=800&q=80",
+    liveUrl: "#",
+    githubUrl: "https://github.com/Sanskar121543/MusicRecommendationSystem"
   },
   {
-    image: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/tailwindcss/tailwindcss-original.svg",
-    link: "https://tailwindcss.com/",
-    title: "Tailwind CSS",
-    description: "Utility-first styling"
+    title: "Compre Quiz Practice",
+    description:
+      "Web-based quiz platform built to help students practice and revise questions for comprehensive exams through repeated testing.",
+    tags: [
+      "HTML",
+      "CSS",
+      "JavaScript"
+    ],
+    image: "https://images.unsplash.com/photo-1523240795612-9a054b0db644?auto=format&fit=crop&w=800&q=80",
+    liveUrl: "https://snorelax08.github.io/Compre-quiz-practice/",
+    githubUrl: "https://github.com/snorelax08/Compre-quiz-practice"
   },
   {
-    image: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/python/python-original.svg",
-    link: "https://www.python.org/",
-    title: "Python",
-    description: "ML & backend logic"
+    title: "GitPilot",
+    description:
+      "AI-powered Git assistant that converts natural language instructions into context-aware Git commands with safety checks.",
+    tags: [
+      "Python",
+      "LLMs",
+      "Gemini API",
+      "LLaMA",
+      "Developer Tools"
+    ],
+    image: "https://images.unsplash.com/photo-1618401471353-b98afee0b2eb?auto=format&fit=crop&w=800&q=80",
+    liveUrl: "#",
+    githubUrl: "#"
+  },
+   {
+    title: "MetaMint",
+    description:
+      "Blockchain-based platform that enables users to invest in creators by purchasing creator-specific tokens, fostering growth and innovation in the creator economy.",
+    tags: [
+      "Blockchain",
+      "Node.js",
+      "Express.js",
+      "MongoDB",
+      "HTML",
+      "CSS"
+    ],
+    image: "https://images.unsplash.com/photo-1644088379091-d574269d422f?auto=format&fit=crop&w=800&q=80",
+    liveUrl: "#",
+    githubUrl: "https://github.com/your-username/metamint"
   },
   {
-    image: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/tensorflow/tensorflow-original.svg",
-    link: "https://www.tensorflow.org/",
-    title: "TensorFlow",
-    description: "Deep learning"
-  },
-  {
-    image: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/scikitlearn/scikitlearn-original.svg",
-    link: "https://scikit-learn.org/",
-    title: "Scikit-learn",
-    description: "ML algorithms"
-  },
-  {
-    image: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/pandas/pandas-original.svg",
-    link: "https://pandas.pydata.org/",
-    title: "Pandas",
-    description: "Data analysis"
-  },
-  {
-    image: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/numpy/numpy-original.svg",
-    link: "https://numpy.org/",
-    title: "NumPy",
-    description: "Numerical computing"
-  },
-  {
-    image: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/matplotlib/matplotlib-original.svg",
-    link: "https://matplotlib.org/",
-    title: "Matplotlib",
-    description: "Visualization"
-  },
-  {
-    image: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/mysql/mysql-original.svg",
-    link: "https://www.mysql.com/",
-    title: "SQL",
-    description: "Relational databases"
-  },
-  {
-    image: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/mongodb/mongodb-original.svg",
-    link: "https://www.mongodb.com/",
-    title: "MongoDB",
-    description: "NoSQL databases"
-  },
-  {
-    image: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/git/git-original.svg",
-    link: "https://git-scm.com/",
-    title: "Git",
-    description: "Version control"
-  },
-  {
-    image: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/github/github-original.svg",
-    link: "https://github.com/",
-    title: "GitHub",
-    description: "Code collaboration"
+    title: "IoT & Soil Microelements Analysis",
+    description:
+      "Machine learning–based analysis of soil microelements using real-world IoT sensor data to generate actionable insights under noisy conditions.",
+    tags: [
+      "Machine Learning",
+      "IoT",
+      "Data Analysis"
+    ],
+    image: "https://images.unsplash.com/photo-1501004318641-b39e6451bec6?auto=format&fit=crop&w=800&q=80",
+    liveUrl: "#",
+    githubUrl: "#"
   }
 ];
 
@@ -99,33 +129,74 @@ export function ProjectsSection() {
   return (
     <section id="projects" className="py-24 relative">
       {/* Gradient overlay */}
-      <div className="absolute inset-0 bg-gradient-to-b from-background/0 via-background/30 to-background/0 pointer-events-none" />
+      <div className="absolute inset-0 bg-gradient-to-b from-background/0 via-background/40 to-background/0 pointer-events-none" />
 
       <div className="container mx-auto px-6 relative">
-        <div className="max-w-5xl mx-auto">
+        <div className="max-w-6xl mx-auto">
           <AnimatedSection animation="fade-up">
-            <h2 className="text-3xl md:text-4xl font-bold text-foreground mb-12 text-center drop-shadow-md">
+            <h2 className="text-3xl md:text-4xl font-bold text-foreground mb-4 text-center drop-shadow-md">
               Featured Projects
             </h2>
           </AnimatedSection>
 
-          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-            {skillItems.map((item, index) => (
-              <AnimatedSection key={item.title} animation="fade-up" delay={index * 100}>
-                <a 
-                  href={item.link}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="block group"
+          <AnimatedSection animation="fade-up" delay={100}>
+            <p className="text-foreground/75 text-center mb-16 max-w-2xl mx-auto drop-shadow-sm">
+              A selection of my recent work showcasing different technologies and
+              problem-solving approaches.
+            </p>
+          </AnimatedSection>
+
+          <div className="grid md:grid-cols-2 gap-8">
+            {projects.map((project, index) => (
+              <AnimatedSection
+                key={project.title}
+                animation="fade-up"
+                delay={150 * (index + 1)}
+              >
+                <GlassCard
+                  variant="default"
+                  className="group overflow-hidden h-full"
                 >
-                  <div className="relative bg-gradient-to-br from-foreground/[0.08] via-foreground/[0.04] to-transparent backdrop-blur-xl rounded-2xl border border-foreground/[0.12] p-6 shadow-xl transition-all duration-300 hover:scale-[1.02] hover:shadow-2xl">
-                    <div className="w-16 h-16 mb-4 rounded-xl bg-background/50 p-3 flex items-center justify-center">
-                      <img src={item.image} alt={item.title} className="w-full h-full object-contain" />
-                    </div>
-                    <h3 className="text-xl font-semibold text-foreground mb-2">{item.title}</h3>
-                    <p className="text-foreground/70">{item.description}</p>
+                  <div className="aspect-video overflow-hidden">
+                    <img
+                      src={project.image}
+                      alt={project.title}
+                      className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700 ease-out"
+                    />
                   </div>
-                </a>
+                  <div className="p-6">
+                    <h3 className="text-xl font-semibold text-foreground mb-2 drop-shadow-sm">
+                      {project.title}
+                    </h3>
+                    <p className="text-foreground/70 text-sm mb-4 leading-relaxed">
+                      {project.description}
+                    </p>
+                    <div className="flex flex-wrap gap-2 mb-6">
+                      {project.tags.map((tag) => (
+                        <span
+                          key={tag}
+                          className="px-3 py-1.5 text-xs bg-gradient-to-br from-foreground/[0.1] to-foreground/[0.05] backdrop-blur-sm text-foreground/80 rounded-lg border border-foreground/[0.1] shadow-[0_1px_4px_rgba(0,0,0,0.06),inset_0_1px_0_rgba(255,255,255,0.1)]"
+                        >
+                          {tag}
+                        </span>
+                      ))}
+                    </div>
+                    <div className="flex gap-3">
+                      <Button variant="glass" size="sm" asChild>
+                        <a href={project.liveUrl} target="_blank" rel="noopener noreferrer">
+                          <ExternalLink className="h-4 w-4 mr-2" />
+                          Live Demo
+                        </a>
+                      </Button>
+                      <Button variant="ghost" size="sm" className="hover:bg-foreground/8" asChild>
+                        <a href={project.githubUrl} target="_blank" rel="noopener noreferrer">
+                          <Github className="h-4 w-4 mr-2" />
+                          Code
+                        </a>
+                      </Button>
+                    </div>
+                  </div>
+                </GlassCard>
               </AnimatedSection>
             ))}
           </div>
