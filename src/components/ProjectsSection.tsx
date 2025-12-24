@@ -1,5 +1,4 @@
 import { AnimatedSection } from "./ui/animated-section";
-import InfiniteMenu from "./ui/infinite-menu";
 
 const skillItems = [
   {
@@ -96,38 +95,40 @@ const skillItems = [
 
 
 
-export function SkillsSection() {
+export function ProjectsSection() {
   return (
-    <section id="skills" className="py-24 relative">
+    <section id="projects" className="py-24 relative">
       {/* Gradient overlay */}
       <div className="absolute inset-0 bg-gradient-to-b from-background/0 via-background/30 to-background/0 pointer-events-none" />
 
       <div className="container mx-auto px-6 relative">
         <div className="max-w-5xl mx-auto">
           <AnimatedSection animation="fade-up">
-            <h2 className="text-3xl md:text-4xl font-bold text-foreground mb-4 text-center drop-shadow-md">
-              Skills & Expertise
+            <h2 className="text-3xl md:text-4xl font-bold text-foreground mb-12 text-center drop-shadow-md">
+              Featured Projects
             </h2>
           </AnimatedSection>
 
-          <AnimatedSection animation="fade-up" delay={100}>
-            <p className="text-foreground/75 text-center mb-8 max-w-2xl mx-auto drop-shadow-sm">
-              Technologies and tools I use to bring ideas to life. Drag to explore.
-            </p>
-          </AnimatedSection>
-
-          <AnimatedSection animation="scale" delay={200}>
-            <div
-              className="relative w-full rounded-3xl overflow-hidden"
-              style={{ height: "500px" }}
-            >
-              {/* Glass background for the menu */}
-              <div className="absolute inset-0 bg-gradient-to-br from-foreground/[0.03] via-foreground/[0.01] to-transparent backdrop-blur-sm rounded-3xl border border-foreground/[0.08]" />
-
-              {/* Infinite menu */}
-              <InfiniteMenu items={skillItems} scale={1.0} />
-            </div>
-          </AnimatedSection>
+          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+            {skillItems.map((item, index) => (
+              <AnimatedSection key={item.title} animation="fade-up" delay={index * 100}>
+                <a 
+                  href={item.link}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="block group"
+                >
+                  <div className="relative bg-gradient-to-br from-foreground/[0.08] via-foreground/[0.04] to-transparent backdrop-blur-xl rounded-2xl border border-foreground/[0.12] p-6 shadow-xl transition-all duration-300 hover:scale-[1.02] hover:shadow-2xl">
+                    <div className="w-16 h-16 mb-4 rounded-xl bg-background/50 p-3 flex items-center justify-center">
+                      <img src={item.image} alt={item.title} className="w-full h-full object-contain" />
+                    </div>
+                    <h3 className="text-xl font-semibold text-foreground mb-2">{item.title}</h3>
+                    <p className="text-foreground/70">{item.description}</p>
+                  </div>
+                </a>
+              </AnimatedSection>
+            ))}
+          </div>
         </div>
       </div>
     </section>
