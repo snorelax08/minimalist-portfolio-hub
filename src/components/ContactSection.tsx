@@ -1,4 +1,4 @@
-import { Mail, MapPin, Phone, Send, Github, Linkedin, Twitter } from "lucide-react";
+import { Mail, MapPin, Phone, Send, Github, Linkedin, Instagram } from "lucide-react";
 import { Button } from "./ui/button";
 import { Input } from "./ui/input";
 import { Textarea } from "./ui/textarea";
@@ -11,27 +11,27 @@ const contactInfo = [
   {
     icon: Mail,
     label: "Email",
-    value: "hello@example.com",
-    href: "mailto:hello@example.com",
+    value: "atharwared@gmail.com",
+    href: "mailto:atharwared@gmail.com",
   },
   {
     icon: Phone,
     label: "Phone",
-    value: "+1 (555) 123-4567",
-    href: "tel:+15551234567",
+    value: "+91 73209804667",
+    href: "tel:+91 7320980466",
   },
   {
     icon: MapPin,
-    label: "Location",
-    value: "San Francisco, CA",
-    href: "#",
+    label: "Vellore, Tamil Nadu",
+    value: "Vellore, Tamil Nadu",
+    href: "https://www.google.com/maps/place/Vellore+Institute+of+Technology/@12.9692284,79.1533587,17z/data=!3m1!4b1!4m6!3m5!1s0x3bad479f0ccbe067:0xfef222e5f36ecdeb!8m2!3d12.9692232!4d79.1559336!16zL20vMDZzcHNo?entry=ttu&g_ep=EgoyMDI1MTIwOS4wIKXMDSoASAFQAw%3D%3D",
   },
 ];
 
 const socialLinks = [
-  { icon: Github, href: "#", label: "GitHub" },
-  { icon: Linkedin, href: "#", label: "LinkedIn" },
-  { icon: Twitter, href: "#", label: "Twitter" },
+  { icon: Github, href: "https://github.com/snorelax08", label: "GitHub" },
+  { icon: Linkedin, href: "https://www.linkedin.com/in/atharwa-vatsyayan-78a83a260/", label: "LinkedIn" },
+  { icon: Instagram, href: "https://www.instagram.com/", label: "Instagram" },
 ];
 
 export function ContactSection() {
@@ -66,8 +66,7 @@ export function ContactSection() {
           
           <AnimatedSection animation="fade-up" delay={100}>
             <p className="text-foreground/75 text-center mb-16 max-w-2xl mx-auto drop-shadow-sm">
-              Have a project in mind or just want to say hello? I'd love to hear
-              from you.
+              Interested in working together or discussing an idea? I’m always open to meaningful conversations.
             </p>
           </AnimatedSection>
 
