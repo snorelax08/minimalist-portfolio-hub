@@ -93,6 +93,8 @@ const skillItems = [
   }
 ];
 
+
+
 export function ProjectsSection() {
   return (
     <section id="projects" className="py-24 relative">
@@ -116,14 +118,12 @@ export function ProjectsSection() {
                   rel="noopener noreferrer"
                   className="block group"
                 >
-                  <div className="relative bg-gradient-to-br from-foreground/[0.08] via-foreground/[0.04] to-transparent backdrop-blur-xl rounded-2xl border border-foreground/[0.12] p-6 shadow-xl transition-all duration-500 ease-out hover:scale-[1.03] hover:-translate-y-2 hover:shadow-[0_20px_50px_rgba(0,0,0,0.3),0_0_30px_hsl(var(--primary)/0.2)] hover:border-primary/30 group-hover:from-primary/[0.08] group-hover:via-foreground/[0.04] group-hover:to-transparent before:absolute before:inset-0 before:rounded-2xl before:opacity-0 before:transition-opacity before:duration-500 before:bg-[radial-gradient(circle_at_50%_0%,hsl(var(--primary)/0.15),transparent_70%)] hover:before:opacity-100 overflow-hidden">
-                    {/* Glow effect on hover */}
-                    <div className="absolute -inset-1 bg-gradient-to-r from-primary/20 via-primary/10 to-primary/20 rounded-2xl blur-xl opacity-0 group-hover:opacity-100 transition-opacity duration-500 -z-10" />
-                    <div className="w-16 h-16 mb-4 rounded-xl bg-background/50 p-3 flex items-center justify-center transition-all duration-300 group-hover:bg-primary/10 group-hover:shadow-[0_0_20px_hsl(var(--primary)/0.3)]">
-                      <img src={item.image} alt={item.title} className="w-full h-full object-contain transition-transform duration-300 group-hover:scale-110" />
+                  <div className="relative bg-gradient-to-br from-foreground/[0.08] via-foreground/[0.04] to-transparent backdrop-blur-xl rounded-2xl border border-foreground/[0.12] p-6 shadow-xl transition-all duration-300 hover:scale-[1.02] hover:shadow-2xl">
+                    <div className="w-16 h-16 mb-4 rounded-xl bg-background/50 p-3 flex items-center justify-center">
+                      <img src={item.image} alt={item.title} className="w-full h-full object-contain" />
                     </div>
-                    <h3 className="text-xl font-semibold text-foreground mb-2 transition-colors duration-300 group-hover:text-primary">{item.title}</h3>
-                    <p className="text-foreground/70 transition-colors duration-300 group-hover:text-foreground/90">{item.description}</p>
+                    <h3 className="text-xl font-semibold text-foreground mb-2">{item.title}</h3>
+                    <p className="text-foreground/70">{item.description}</p>
                   </div>
                 </a>
               </AnimatedSection>
