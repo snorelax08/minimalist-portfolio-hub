@@ -1,122 +1,133 @@
-import { ExternalLink, Github } from "lucide-react";
-import { Button } from "./ui/button";
-import { GlassCard } from "./ui/glass-card";
 import { AnimatedSection } from "./ui/animated-section";
+import InfiniteMenu from "./ui/infinite-menu";
 
-const projects = [
+const skillItems = [
   {
-    title: "E-Commerce Platform",
-    description:
-      "A full-featured online store with cart functionality, payment integration, and admin dashboard.",
-    tags: ["React", "Node.js", "PostgreSQL", "Stripe"],
-    image: "https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?w=600&h=400&fit=crop",
-    liveUrl: "#",
-    githubUrl: "#",
+    image: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/html5/html5-original.svg",
+    link: "https://developer.mozilla.org/en-US/docs/Web/HTML",
+    title: "HTML",
+    description: "Semantic structure"
   },
   {
-    title: "Task Management App",
-    description:
-      "Collaborative task management tool with real-time updates, team features, and analytics.",
-    tags: ["Next.js", "TypeScript", "Prisma", "WebSocket"],
-    image: "https://images.unsplash.com/photo-1611224923853-80b023f02d71?w=600&h=400&fit=crop",
-    liveUrl: "#",
-    githubUrl: "#",
+    image: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/css3/css3-original.svg",
+    link: "https://developer.mozilla.org/en-US/docs/Web/CSS",
+    title: "CSS",
+    description: "Responsive styling"
   },
   {
-    title: "Finance Dashboard",
-    description:
-      "Interactive dashboard for tracking investments, expenses, and financial goals with data visualization.",
-    tags: ["React", "D3.js", "TailwindCSS", "REST API"],
-    image: "https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=600&h=400&fit=crop",
-    liveUrl: "#",
-    githubUrl: "#",
+    image: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/javascript/javascript-original.svg",
+    link: "https://developer.mozilla.org/en-US/docs/Web/JavaScript",
+    title: "JavaScript",
+    description: "Core web logic"
   },
   {
-    title: "Social Media App",
-    description:
-      "Modern social platform with real-time messaging, stories, and content sharing features.",
-    tags: ["React Native", "Firebase", "Redux", "Cloud Functions"],
-    image: "https://images.unsplash.com/photo-1611162617213-7d7a39e9b1d7?w=600&h=400&fit=crop",
-    liveUrl: "#",
-    githubUrl: "#",
+    image: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/react/react-original.svg",
+    link: "https://react.dev/",
+    title: "React",
+    description: "Modern UI development"
   },
+  {
+    image: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/tailwindcss/tailwindcss-original.svg",
+    link: "https://tailwindcss.com/",
+    title: "Tailwind CSS",
+    description: "Utility-first styling"
+  },
+  {
+    image: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/python/python-original.svg",
+    link: "https://www.python.org/",
+    title: "Python",
+    description: "ML & backend logic"
+  },
+  {
+    image: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/tensorflow/tensorflow-original.svg",
+    link: "https://www.tensorflow.org/",
+    title: "TensorFlow",
+    description: "Deep learning"
+  },
+  {
+    image: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/scikitlearn/scikitlearn-original.svg",
+    link: "https://scikit-learn.org/",
+    title: "Scikit-learn",
+    description: "ML algorithms"
+  },
+  {
+    image: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/pandas/pandas-original.svg",
+    link: "https://pandas.pydata.org/",
+    title: "Pandas",
+    description: "Data analysis"
+  },
+  {
+    image: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/numpy/numpy-original.svg",
+    link: "https://numpy.org/",
+    title: "NumPy",
+    description: "Numerical computing"
+  },
+  {
+    image: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/matplotlib/matplotlib-original.svg",
+    link: "https://matplotlib.org/",
+    title: "Matplotlib",
+    description: "Visualization"
+  },
+  {
+    image: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/mysql/mysql-original.svg",
+    link: "https://www.mysql.com/",
+    title: "SQL",
+    description: "Relational databases"
+  },
+  {
+    image: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/mongodb/mongodb-original.svg",
+    link: "https://www.mongodb.com/",
+    title: "MongoDB",
+    description: "NoSQL databases"
+  },
+  {
+    image: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/git/git-original.svg",
+    link: "https://git-scm.com/",
+    title: "Git",
+    description: "Version control"
+  },
+  {
+    image: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/github/github-original.svg",
+    link: "https://github.com/",
+    title: "GitHub",
+    description: "Code collaboration"
+  }
 ];
 
-export function ProjectsSection() {
+
+
+export function SkillsSection() {
   return (
-    <section id="projects" className="py-24 relative">
+    <section id="skills" className="py-24 relative">
       {/* Gradient overlay */}
-      <div className="absolute inset-0 bg-gradient-to-b from-background/0 via-background/40 to-background/0 pointer-events-none" />
-      
+      <div className="absolute inset-0 bg-gradient-to-b from-background/0 via-background/30 to-background/0 pointer-events-none" />
+
       <div className="container mx-auto px-6 relative">
-        <div className="max-w-6xl mx-auto">
+        <div className="max-w-5xl mx-auto">
           <AnimatedSection animation="fade-up">
             <h2 className="text-3xl md:text-4xl font-bold text-foreground mb-4 text-center drop-shadow-md">
-              Featured Projects
+              Skills & Expertise
             </h2>
           </AnimatedSection>
-          
+
           <AnimatedSection animation="fade-up" delay={100}>
-            <p className="text-foreground/75 text-center mb-16 max-w-2xl mx-auto drop-shadow-sm">
-              A selection of my recent work showcasing different technologies and
-              problem-solving approaches.
+            <p className="text-foreground/75 text-center mb-8 max-w-2xl mx-auto drop-shadow-sm">
+              Technologies and tools I use to bring ideas to life. Drag to explore.
             </p>
           </AnimatedSection>
 
-          <div className="grid md:grid-cols-2 gap-8">
-            {projects.map((project, index) => (
-              <AnimatedSection 
-                key={project.title} 
-                animation="fade-up" 
-                delay={150 * (index + 1)}
-              >
-                <GlassCard
-                  variant="default"
-                  className="group overflow-hidden h-full"
-                >
-                  <div className="aspect-video overflow-hidden">
-                    <img
-                      src={project.image}
-                      alt={project.title}
-                      className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700 ease-out"
-                    />
-                  </div>
-                  <div className="p-6">
-                    <h3 className="text-xl font-semibold text-foreground mb-2 drop-shadow-sm">
-                      {project.title}
-                    </h3>
-                    <p className="text-foreground/70 text-sm mb-4 leading-relaxed">
-                      {project.description}
-                    </p>
-                    <div className="flex flex-wrap gap-2 mb-6">
-                      {project.tags.map((tag) => (
-                        <span
-                          key={tag}
-                          className="px-3 py-1.5 text-xs bg-gradient-to-br from-foreground/[0.1] to-foreground/[0.05] backdrop-blur-sm text-foreground/80 rounded-lg border border-foreground/[0.1] shadow-[0_1px_4px_rgba(0,0,0,0.06),inset_0_1px_0_rgba(255,255,255,0.1)]"
-                        >
-                          {tag}
-                        </span>
-                      ))}
-                    </div>
-                    <div className="flex gap-3">
-                      <Button variant="glass" size="sm" asChild>
-                        <a href={project.liveUrl} target="_blank" rel="noopener noreferrer">
-                          <ExternalLink className="h-4 w-4 mr-2" />
-                          Live Demo
-                        </a>
-                      </Button>
-                      <Button variant="ghost" size="sm" className="hover:bg-foreground/8" asChild>
-                        <a href={project.githubUrl} target="_blank" rel="noopener noreferrer">
-                          <Github className="h-4 w-4 mr-2" />
-                          Code
-                        </a>
-                      </Button>
-                    </div>
-                  </div>
-                </GlassCard>
-              </AnimatedSection>
-            ))}
-          </div>
+          <AnimatedSection animation="scale" delay={200}>
+            <div
+              className="relative w-full rounded-3xl overflow-hidden"
+              style={{ height: "500px" }}
+            >
+              {/* Glass background for the menu */}
+              <div className="absolute inset-0 bg-gradient-to-br from-foreground/[0.03] via-foreground/[0.01] to-transparent backdrop-blur-sm rounded-3xl border border-foreground/[0.08]" />
+
+              {/* Infinite menu */}
+              <InfiniteMenu items={skillItems} scale={1.0} />
+            </div>
+          </AnimatedSection>
         </div>
       </div>
     </section>
