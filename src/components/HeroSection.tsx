@@ -1,14 +1,14 @@
 import { ArrowDown } from "lucide-react";
 import { Button } from "./ui/button";
 import { AnimatedSection } from "./ui/animated-section";
+import { MagneticText } from "@/hooks/use-magnetic-text";
+import { TimeGreeting } from "./TimeGreeting";
 
 export function HeroSection() {
   const scrollToAbout = () => {
     const element = document.querySelector("#about");
     if (element) {
-      element.scrollIntoView({
-        behavior: "smooth"
-      });
+      element.scrollIntoView({ behavior: "smooth" });
     }
   };
   
@@ -17,14 +17,12 @@ export function HeroSection() {
       <div className="container mx-auto px-6 py-20">
         <div className="max-w-3xl mx-auto text-center">
           <AnimatedSection animation="fade-up" delay={0}>
-            <p className="text-sm uppercase tracking-widest text-muted-foreground mb-4 drop-shadow-sm">
-              Welcome to my portfolio
-            </p>
+            <TimeGreeting className="mb-4" />
           </AnimatedSection>
           
           <AnimatedSection animation="fade-up" delay={100}>
             <h1 className="text-4xl md:text-6xl lg:text-7xl font-bold text-foreground mb-6 leading-tight drop-shadow-md">
-              Atharwa Vatsyayan
+              <MagneticText>Atharwa Vatsyayan</MagneticText>
             </h1>
           </AnimatedSection>
           
@@ -62,7 +60,6 @@ export function HeroSection() {
         </div>
       </div>
 
-      {/* Scroll Indicator */}
       <button 
         onClick={scrollToAbout} 
         className="absolute bottom-10 left-1/2 -translate-x-1/2 text-muted-foreground hover:text-foreground transition-colors animate-bounce" 
