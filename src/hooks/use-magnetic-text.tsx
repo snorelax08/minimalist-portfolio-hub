@@ -76,15 +76,23 @@ export function MagneticText({
   className = '',
   charClassName = ''
 }: { 
-  children: string; 
+  children: React.ReactNode; 
   className?: string;
   charClassName?: string;
 }) {
   const containerRef = useMagneticText({ strength: 0.4, radius: 120 });
+  
+  // Handle string children
+  const text = typeof children === 'string' ? children : '';
+  
+  if (typeof children !== 'string') {
+    // For non-string children, just wrap without magnetic effect
+    return <span className={`inline-block ${className}`}>{children}</span>;
+  }
 
   return (
     <span ref={containerRef} className={`inline-block ${className}`}>
-      {children.split('').map((char, i) => (
+      {text.split('').map((char, i) => (
         <span
           key={i}
           className={`magnetic-char inline-block transition-colors duration-200 ${charClassName}`}
