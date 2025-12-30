@@ -14,32 +14,43 @@ export function HeroSection() {
   };
   
   return (
-    <section id="home" className="min-h-screen flex items-center justify-center relative overflow-hidden bg-black">
-      {/* 3D Particle Universe Background */}
+    <section id="home" className="min-h-screen flex items-center justify-center relative overflow-hidden" style={{ background: '#030014' }}>
+      {/* 3D Warp Speed Universe - Canvas Layer */}
       <Hero3DScene />
       
-      <div className="container mx-auto px-6 py-20 relative z-10">
+      {/* Content Layer - Above 3D Canvas */}
+      <div className="container mx-auto px-6 py-20 relative" style={{ zIndex: 10 }}>
         <div className="max-w-3xl mx-auto text-center">
-          <AnimatedSection animation="fade-up" delay={0}>
-            <TimeGreeting className="mb-4 text-white/80" />
+          <AnimatedSection animation="fade-up" delay={800}>
+            <TimeGreeting className="mb-4 text-white/60 text-sm tracking-widest uppercase" />
           </AnimatedSection>
           
-          <AnimatedSection animation="fade-up" delay={100}>
-            <h1 className="text-5xl md:text-7xl lg:text-8xl font-bold text-white mb-6 leading-tight">
-              <span className="bg-gradient-to-r from-violet-400 via-purple-400 to-blue-400 bg-clip-text text-transparent drop-shadow-[0_0_30px_rgba(139,92,246,0.5)]">
+          <AnimatedSection animation="fade-up" delay={1000}>
+            <h1 className="text-5xl md:text-7xl lg:text-8xl font-bold mb-6 leading-tight">
+              <span 
+                className="inline-block"
+                style={{
+                  background: 'linear-gradient(135deg, #c084fc 0%, #818cf8 25%, #60a5fa 50%, #22d3ee 75%, #c084fc 100%)',
+                  backgroundSize: '200% 200%',
+                  animation: 'gradient-shift 8s ease infinite',
+                  WebkitBackgroundClip: 'text',
+                  WebkitTextFillColor: 'transparent',
+                  filter: 'drop-shadow(0 0 40px rgba(139, 92, 246, 0.5))',
+                }}
+              >
                 <MagneticText>Atharwa Vatsyayan</MagneticText>
               </span>
             </h1>
           </AnimatedSection>
           
-          <AnimatedSection animation="fade-up" delay={200}>
-            <p className="text-lg md:text-xl text-white/70 max-w-xl mx-auto mb-12 leading-relaxed">
+          <AnimatedSection animation="fade-up" delay={1200}>
+            <p className="text-lg md:text-xl text-white/50 max-w-xl mx-auto mb-12 leading-relaxed">
               I craft beautiful digital experiences with clean code and thoughtful
               design. Passionate about building products that make a difference.
             </p>
           </AnimatedSection>
           
-          <AnimatedSection animation="fade-up" delay={300}>
+          <AnimatedSection animation="fade-up" delay={1400}>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
               <Button 
                 size="lg" 
@@ -47,7 +58,11 @@ export function HeroSection() {
                   const element = document.querySelector("#projects");
                   if (element) element.scrollIntoView({ behavior: "smooth" });
                 }} 
-                className="text-lg bg-gradient-to-r from-violet-600 to-blue-600 hover:from-violet-500 hover:to-blue-500 border-0 shadow-[0_0_30px_rgba(139,92,246,0.4)] hover:shadow-[0_0_40px_rgba(139,92,246,0.6)] transition-all duration-300"
+                className="text-lg text-white border-0 transition-all duration-500"
+                style={{
+                  background: 'linear-gradient(135deg, rgba(139, 92, 246, 0.8), rgba(59, 130, 246, 0.8))',
+                  boxShadow: '0 0 40px rgba(139, 92, 246, 0.4), inset 0 1px 0 rgba(255,255,255,0.2)',
+                }}
               >
                 View My Work
               </Button>
@@ -58,7 +73,12 @@ export function HeroSection() {
                   const element = document.querySelector("#contact");
                   if (element) element.scrollIntoView({ behavior: "smooth" });
                 }}
-                className="text-lg border-white/20 text-white hover:bg-white/10 hover:border-white/40 backdrop-blur-sm transition-all duration-300"
+                className="text-lg text-white/80 hover:text-white transition-all duration-300"
+                style={{
+                  background: 'rgba(255,255,255,0.05)',
+                  borderColor: 'rgba(255,255,255,0.15)',
+                  backdropFilter: 'blur(10px)',
+                }}
               >
                 Get In Touch
               </Button>
@@ -69,18 +89,20 @@ export function HeroSection() {
 
       <button 
         onClick={scrollToAbout} 
-        className="absolute bottom-10 left-1/2 -translate-x-1/2 text-white/50 hover:text-white transition-colors animate-bounce z-10" 
+        className="absolute bottom-10 left-1/2 -translate-x-1/2 text-white/30 hover:text-white/70 transition-colors animate-bounce" 
+        style={{ zIndex: 10 }}
         aria-label="Scroll to about section"
       >
         <ArrowDown className="h-6 w-6" />
       </button>
       
-      {/* Subtle scan line effect */}
-      <div className="absolute inset-0 pointer-events-none z-20 opacity-[0.03]"
-        style={{
-          backgroundImage: 'repeating-linear-gradient(0deg, transparent, transparent 2px, rgba(255,255,255,0.03) 2px, rgba(255,255,255,0.03) 4px)',
-        }}
-      />
+      {/* CSS for gradient animation */}
+      <style>{`
+        @keyframes gradient-shift {
+          0%, 100% { background-position: 0% 50%; }
+          50% { background-position: 100% 50%; }
+        }
+      `}</style>
     </section>
   );
 }
